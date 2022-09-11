@@ -1,9 +1,7 @@
-const { SHA256 } = require("crypto-js");
-
 const AWS = require("aws-sdk");
 const TABLE_NAME = process.env.SESSION_TABLE_NAME;
 const dynamoDbClient = new AWS.DynamoDB.DocumentClient();
-
+const { SHA256 } = require("crypto-js");
 /*
   curl --location --request POST 'https://i17sjmwgtg.execute-api.us-east-1.amazonaws.com/dev/create' \
   --header 'Content-Type: application/json' \
@@ -24,7 +22,6 @@ const generateId = (userId) => {
 
 module.exports.createSession = async (event, context, callback) => {
   const user = JSON.parse(event.body);
-  console.log(user);
   const sessionId = generateId(user.id);
   const currentTime = Date.now();
 
@@ -36,8 +33,6 @@ module.exports.createSession = async (event, context, callback) => {
     expires: currentTime + 1000 * 60 * 60 * 24 * 14,
     userInfo: user,
   };
-
-  console.log("The session info ", sessionInfo);
 
   try {
     await dynamoDbClient
