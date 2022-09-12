@@ -3,7 +3,7 @@ const TABLE_NAME = process.env.SESSION_TABLE_NAME;
 const dynamoDbClient = new AWS.DynamoDB.DocumentClient();
 
 /*
-  curl --location --request PUT 'https://i17sjmwgtg.execute-api.us-east-1.amazonaws.com/dev/auth' \
+  curl --location --request PUT 'https://i17sjmwgtg.execute-api.us-east-1.amazonaws.com/dev/session/auth' \
   --header 'Content-Type: application/json' \
   --data-raw '{
       "sessionId": "896a3d3271a003ada91e48773deb9041ba29fdb65f1791d25894c9c63d33a693"

@@ -35,7 +35,14 @@ functions:
     handler: handler/authenticateSession.authenticateSession
     events:
       - http:
-          path: auth
+          path: session/auth
+          method: put
+          cors: true
+  deactivate:
+    handler: handler/deactivateSession.deactivateSession
+    events:
+      - http:
+          path: session/deactivate
           method: put
           cors: true
 
