@@ -1,5 +1,7 @@
 # Authentication
 
+NOTE: Decided I will not use this for production as I will use AWS amplify. 
+
 This will use serverless to create and keep track of user authentication. 
 
 The method for authentication is sessions. We pass a session ID to each endpoint requiring authentication and it will check dynamoDB for if the session is activated. 
